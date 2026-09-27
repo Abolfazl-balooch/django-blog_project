@@ -1,0 +1,16 @@
+# محیط مجازی
+venv/
+env/
+ENV/
+
+# فایل‌های پایتون
+*.pyc
+__pycache__/
+
+# تنظیمات و دیتابیس محلی
+db.sqlite3
+.env
+media/
+
+# فایل‌های PyCharm
+.idea/
