@@ -1,10 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="contact-us">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="down-contact">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="sidebar-item contact-form">
+                                    <div class="sidebar-heading">
+                                        <h2>Send us a message</h2>
+                                    </div>
+                                    <div class="content">
+                                        <form id="contact" action="" method="post">
+                                            {% csrf_token %}
+
+                                            <div class="row">
+
+                                                <!-- Non-field errors -->
+                                                {% if form.non_field_errors %}
+                                                <div class="col-lg-12">
+                                                    <div class="alert alert-danger"> {{ form.non_field_errors }} </div>
+                                                </div> {% endif %}
+
+                                                <!-- Name -->
+                                                <div class="col-lg-6">
+                                                    <fieldset>
+                                                        <label for="{{ form.name.id_for_label }}">
+                                                            {{ form.name.label }}
+                                                        </label>
+
+                                                        {{ form.name }}
+
+                                                        {% if form.name.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ form.name.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Email -->
+                                                <div class="col-lg-6">
+                                                    <fieldset>
+                                                        <label for="{{ form.email.id_for_label }}">
+                                                            {{ form.email.label }}
+                                                        </label>
+
+                                                        {{ form.email }}
+
+                                                        {% if form.email.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ form.email.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Subject -->
+                                                <div class="col-lg-12">
+                                                    <fieldset>
+                                                        <label for="{{ form.subject.id_for_label }}">
+                                                            {{ form.subject.label }}
+                                                        </label>
+
+                                                        {{ form.subject }}
+
+                                                        {% if form.subject.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ form.subject.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Message -->
+                                                <div class="col-lg-12">
+                                                    <fieldset>
+                                                        <label for="{{ form.message.id_for_label }}">
+                                                            {{ form.message.label }}
+                                                        </label>
+
+                                                        {{ form.message }}
+
+                                                        {% if form.message.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ form.message.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Submit -->
+                                                <div class="col-lg-12">
+                                                    <fieldset>
+                                                        <button type="submit" id="form-submit" class="main-button">
+                                                            Send Message
+                                                        </button>
+                                                    </fieldset>
+                                                </div>
+
+                                            </div>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="sidebar-item contact-information">
+                                    <div class="sidebar-heading">
+                                        <h2>contact information</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            <li>
+                                                <h5>090-484-8080</h5>
+                                                <span>PHONE NUMBER</span>
+                                            </li>
+                                            <li>
+                                                <h5>info@company.com</h5>
+                                                <span>EMAIL ADDRESS</span>
+                                            </li>
+                                            <li>
+                                                <h5>123 Aenean id posuere dui,
+                                                    <br>Praesent laoreet 10660</h5>
+                                                <span>STREET ADDRESS</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div id="map">
+                        <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

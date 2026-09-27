@@ -1,10 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    {% include 'includes/head_ref.html' %}
+
 </head>
+
 <body>
-$END$
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- Header -->
+
+<header class="">
+    {% include 'includes/header.html' %}
+</header>
+
+{% block content %}
+
+{% endblock %}
+
+
+
+<footer>
+{% include 'includes/footer.html' %}
+</footer>
+
+{% include 'includes/home_Scripts.html' %}
+
 </body>
 </html>

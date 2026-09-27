@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Article | StandBlog</title>
+</head>
+<body>
+    <div class="container" style="max-width: 600px; margin: 50px auto; text-align: center;">
+        <h2>Are you sure you want to delete "{{ object.title }}"?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" style="background-color: #dc3545; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Yes, Delete</button>
+            <a href="{{ object.get_absolute_url }}" style="padding: 10px 20px; text-decoration: none; color: #333;">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

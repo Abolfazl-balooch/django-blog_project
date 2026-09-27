@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="contact-us">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="down-contact">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="sidebar-item contact-form">
+                                    <div class="sidebar-heading">
+                                        <h2>EDIT PROFILE</h2>
+                                    </div>
+                                    <div class="content">
+                                        <form id="edit-profile-form" action="{% url 'edit_profile' %}" method="post">
+                                            {% csrf_token %}
+
+                                            <div class="row">
+
+                                                <!-- Non-field errors -->
+                                                {% if profile_form.non_field_errors %}
+                                                    <div class="col-lg-12">
+                                                        <div class="alert alert-danger">{{ profile_form.non_field_errors }}</div>
+                                                    </div>
+                                                {% endif %}
+
+                                                <!-- Username -->
+                                                <div class="col-lg-6">
+                                                    <fieldset>
+                                                        <label for="{{ profile_form.username.id_for_label }}">
+                                                            {{ profile_form.username.label }}
+                                                        </label>
+
+                                                        {{ profile_form.username }}
+
+                                                        {% if profile_form.username.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ profile_form.username.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Email -->
+                                                <div class="col-lg-6">
+                                                    <fieldset>
+                                                        <label for="{{ profile_form.email.id_for_label }}">
+                                                            {{ profile_form.email.label }}
+                                                        </label>
+
+                                                        {{ profile_form.email }}
+
+                                                        {% if profile_form.email.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ profile_form.email.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- First name -->
+                                                <div class="col-lg-6">
+                                                    <fieldset>
+                                                        <label for="{{ profile_form.first_name.id_for_label }}">
+                                                            {{ profile_form.first_name.label }}
+                                                        </label>
+
+                                                        {{ profile_form.first_name }}
+
+                                                        {% if profile_form.first_name.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ form.first_name.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Last name -->
+                                                <div class="col-lg-6">
+                                                    <fieldset>
+                                                        <label for="{{ profile_form.last_name.id_for_label }}">
+                                                            {{ profile_form.last_name.label }}
+                                                        </label>
+
+                                                        {{ profile_form.last_name }}
+
+                                                        {% if profile_form.last_name.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ profile_form.last_name.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Password -->
+                                                <div class="col-lg-12">
+                                                    <fieldset>
+                                                        <label for="{{ password_form.password.id_for_label }}">
+                                                            {{ password_form.password.label }}
+                                                        </label>
+
+                                                        {{ password_form.password }}
+
+                                                        {% if password_form.password.errors %}
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ password_form.password.errors }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </fieldset>
+                                                </div>
+
+                                                <!-- Submit -->
+                                                <div class="col-lg-12">
+                                                    <fieldset>
+                                                        <button type="submit" id="form-submit" class="main-button">
+                                                            Save Changes
+                                                        </button>
+                                                    </fieldset>
+                                                </div>
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="sidebar-item contact-information">
+                                    <div class="sidebar-heading">
+                                        <h2>contact information</h2>
+                                    </div>
+                                    <div class="content">
+                                        <ul>
+                                            <li>
+                                                <h5>090-484-8080</h5>
+                                                <span>PHONE NUMBER</span>
+                                            </li>
+                                            <li>
+                                                <h5>info@company.com</h5>
+                                                <span>EMAIL ADDRESS</span>
+                                            </li>
+                                            <li>
+                                                <h5>123 Aenean id posuere dui,
+                                                    <br>Praesent laoreet 10660</h5>
+                                                <span>STREET ADDRESS</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div id="map">
+                        <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
